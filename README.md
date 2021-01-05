@@ -1,2 +1,0 @@
-# parrot
-pictionary word chooser
