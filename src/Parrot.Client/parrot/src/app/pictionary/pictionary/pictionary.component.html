@@ -1,4 +1,4 @@
-<div class="container py-5 text-white">
+<div class="container py-5 col-md-8 text-white">
 
     <div>
         <a href=""><img src="./assets/noun_Parrot_2778164.png" width="90"
@@ -6,8 +6,33 @@
             <span class="special-type display-4" style="color: #59FB79">ZeeZee db admin</span></a>
     </div>
 
+    <!-- API Key -->
+    <div class="my-2 alert alert-secondary" role="alert">
+        <span class="h2">Secret</span>
+        <form>
+            <div class="form-group">
+                <label for="formGroupApiLabel">API Key</label>
+                <input [(ngModel)]="apiKey" name="apiKey" type="text" class="form-control"
+                    placeholder="a secret that matches the constant defined in the apikeys class" spellcheck="true"
+                    data-ms-editor="true">
+            </div>
+            <div *ngIf="!isApiKeyMatching()">
+                ApiKey doesn't match. Without this, you will not be able to add or delete words to the dictionary.
+            </div>
+            <div *ngIf="isApiKeyMatching()">
+                <span class="">Ahoy! Pieces of 8!</span>
+            </div>
+        </form>
+    </div>
+
+    <!-- Service APIS -->
+    <div *ngIf="isApiKeyMatching()">ZeeZeeParrot service is hosted in AzureDevOps at the following url: <a
+            class="text-light" style="text-decoration: underline;" href="{{ serviceUrl }}"><strong>{{ serviceUrl
+                }}</strong></a>
+    </div>
+
     <!-- simple -->
-    <div class="my-2 mx-5 px-5">
+    <div class="my-5" *ngIf="isApiKeyMatching()">
         <span class="h2">Add</span>
         <form>
             <div class="form-group">
@@ -31,7 +56,7 @@
     </div>
 
     <!-- batch -->
-    <div class="my-5 mx-5 px-5">
+    <div class="my-5" *ngIf="isApiKeyMatching()">
         <span class="h2">Add many at once</span> <br />
         <form>
             <div class="form-group">
@@ -57,7 +82,7 @@
     </div>
 
     <!-- list -->
-    <div class="my-5 mx-5 px-5">
+    <div class="my-5" *ngIf="isApiKeyMatching()">
         <span class="h2">List</span>
         <form>
             <div class="form-group">
@@ -81,7 +106,8 @@
                         <td *ngIf="!checkIfCardIsDeleted(card.id)">{{ card.id }}</td>
                         <td *ngIf="!checkIfCardIsDeleted(card.id)">{{ card.word }}</td>
                         <td *ngIf="!checkIfCardIsDeleted(card.id)">{{ card.level }}</td>
-                        <td *ngIf="!checkIfCardIsDeleted(card.id)"><button type="button" class="btn btn-link text-white" (click)="deleteCard(card.id)">remove</button></td>
+                        <td *ngIf="!checkIfCardIsDeleted(card.id)"><button type="button" class="btn btn-link text-white"
+                                (click)="deleteCard(card.id)">remove</button></td>
                     </tr>
                 </tbody>
             </table>

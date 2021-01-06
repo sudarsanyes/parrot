@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>5a918cbc-9039-425b-b4cb-7b295ca70747</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,6 +13,12 @@
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Parrot.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 

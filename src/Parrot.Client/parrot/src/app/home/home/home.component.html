@@ -1,15 +1,15 @@
-<div class="container px-5 py-5">
+<div class="container py-5 col-md-8">
     <a href=""><img src="./assets/noun_Parrot_2778164.png" width="90"
             alt="Parrot by Serhii Smirnov from the Noun Project">
         <span class="special-type display-3" style="color: #59FB79">ZeeZee</span></a>
-    <div class="mx-5 px-5 text-white h3">
+    <div class="text-white h3">
         Hi! I am <span class="h1">ZeeZee</span>, the Parrot. Squawk! <br />
         I can tell you what to draw. <br />
         Click the blue button!
         <br />
         <br />
         <button type="button" class="btn btn-primary" (click)="getAnIdea()">
-            <span *ngIf="!isBusy" class="h3">Get an Idea</span>
+            <span *ngIf="!isBusy" class="h3">Ask ZeeZee</span>
             <span *ngIf="isBusy" class="h3">ZeeZee is thinking...</span>
             <div *ngIf="isBusy" class="spinner-border" role="status">
                 <span class="sr-only">Loading...</span>
@@ -22,7 +22,7 @@
         </div>
     </div>
 
-    <div class="mx-5 my-5 px-5 py-5">
+    <div class="my-5 py-5">
         <a class="text-white" href="./admin">db</a>
     </div>
 </div>
